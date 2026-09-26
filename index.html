@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ning Aroma - 專屬感官香氣測驗 Scent Quiz</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://jsdelivr.net"></script>
+    <style>
+        @import url('https://googleapis.com');
+        .font-serif-luxury { font-family: 'Playfair Display', 'Noto Serif TC', serif; }
+    </style>
+</head>
+<body id="body-layout" class="bg-[#FDFBF7] text-gray-800 transition-colors duration-300 font-serif-luxury antialiased">
+
+    <!-- 導覽列 Navigator (5個主選單) -->
+    <nav class="border-b border-gray-200/60 bg-white/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
+        <div class="text-xl font-bold tracking-widest text-[#C07C5F]">Ning Aroma</div>
+        <div class="hidden md:flex gap-8 text-sm tracking-wider text-gray-600">
+            <a href="#" class="hover:text-[#C07C5F] transition">About</a>
+            <a href="#" class="hover:text-[#C07C5F] transition font-bold text-[#C07C5F]">Scent Quiz</a>
+            <a href="#" class="hover:text-[#C07C5F] transition">Collection</a>
+            <a href="#" class="hover:text-[#C07C5F] transition">KDCA Class</a>
+            <a href="#" class="hover:text-[#C07C5F] transition">Contact</a>
+        </div>
+        <button onclick="toggleDarkMode()" class="text-xs uppercase tracking-widest border border-gray-300 px-3 py-1.5 rounded-full hover:bg-gray-50 transition">Mode</button>
+    </nav>
+
+    <!-- 主視覺與測驗區 -->
+    <main class="max-w-xl mx-auto px-6 py-12">
+        <!-- 品牌精神 Intro -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-wide text-gray-900 mb-3" id="main-title">Organic Tea Couture</h1>
+            <p class="text-sm text-[#8C9E8C] tracking-widest uppercase">Mirror of Soul • 尋找妳的專屬香氣宣告</p>
+        </header>
+
+        <!-- 測驗卡片容器 -->
+        <div id="quiz-card" class="bg-white rounded-3xl p-8 shadow-xl shadow-gray-100/50 border border-gray-100 transition-all">
+            
+            <!-- 問題與選項區域 (透過 JavaScript 動態切換) -->
+            <div id="question-container">
+                <div class="flex justify-between items-center mb-6">
+                    <span id="question-number" class="text-xs tracking-widest text-[#C07C5F] uppercase font-bold">Question 1 / 5</span>
+                    <div class="w-16 h-1 bg-gray-100 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="h-full bg-[#C07C5F] transition-all duration-300" style="width: 20%;"></div>
+                    </div>
+                </div>
+                <h2 id="question-text" class="text-xl font-bold text-gray-900 leading-relaxed mb-8">當妳來到預約制的午後咖啡廳，最吸引妳的第一個角落是？</h2>
+                <div id="options-space" class="flex flex-col gap-4">
+                    <!-- 選項按鈕會由 JS 自動產生 -->
+                </div>
+            </div>
+
+            <!-- 結果開獎區域 (預設隱藏) -->
+            <div id="result-container" class="hidden text-center py-4">
+                <span class="text-xs tracking-widest text-[#8C9E8C] uppercase font-bold mb-2 block">Your Destiny Vibe</span>
+                <h2 id="result-title" class="text-3xl font-bold text-gray-900 mb-4 tracking-wide">霧界之森 ‧ 內省沉靜木質系</h2>
+                <p id="result-description" class="text-gray-600 text-sm leading-relaxed mb-8 px-2">這是一座雨後深夜的森林，沉穩的木質與大地氣息能幫妳澄澈思緒、帶回滿滿的內心平靜與扎根力量。</p>
+                
+                <!-- 核心主力推薦商品區 (高電商轉換邏輯) -->
+                <div class="bg-[#FDFBF7] p-6 rounded-2xl border border-gray-100 mb-8 text-left">
+                    <div class="flex gap-2 mb-3">
+                        <div class="w-4 h-4 rounded-full" style="background-color: #4A4A4A;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background-color: #8C9E8C;"></div>
+                        <div class="w-4 h-4 rounded-full" style="background-color: #C07C5F;"></div>
+                    </div>
+                    <h3 class="font-bold text-sm text-gray-900 mb-1">Ning Aroma 核心系列 10ml</h3>
+                    <p class="text-xs text-gray-500 mb-4">使用天然純精油：雪松、岩蘭草、廣藿香調配。符合國際 KDCA 調香大師工藝標準。</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-lg text-[#C07C5F]">NT$ 880</span>
+                        <span class="text-xs text-green-600 bg-green-50 px-2 py-1 rounded">體驗會限定：現場買大送小</span>
+                    </div>
+                </div>
+
+                <!-- 強烈行動呼籲 (CTA) -->
+                <button onclick="location.reload()" class="w-full bg-[#C07C5F] hover:bg-[#A8654A] text-white font-bold text-sm tracking-widest uppercase py-4 rounded-full shadow-lg shadow-[#C07C5F]/20 transition-all duration-300">
+                    預約體驗一對一高訂香氛課程 (KDCA)
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-12 text-xs text-gray-400 tracking-widest">
+        © 2026 Ning Aroma. All Rights Reserved.
+    </footer>
+
+    <!-- 測驗與UI核心邏輯 JavaScript -->
+    <script>
+        // 5題直覺中英對照題目資料
+        const quizData = [
+            {
+                q: "當妳來到預約制的午後咖啡廳，最吸引妳的第一個角落是？<br><span class='text-sm text-gray-400 font-sans block mt-1'>Your favorite corner in the cafe?</span>",
+                options: [
+                    { text: "窗邊灑落陽光的白色亞麻沙發區 (Sunlight & Linen)", type: "C" },
+                    { text: "擺滿復古木質桌椅與老書櫃的角落 (Vintage Wood & Books)", type: "A" },
+                    { text: "大理石吧檯旁、點著高奢金色蠟燭的座位 (Marble & Luxury Candle)", type: "B" }
+                ]
+            },
+            {
+                q: "今天出門前，妳希望這罐香水帶給妳一整天什麼樣的能量暗示？<br><span class='text-sm text-gray-400 font-sans block mt-1'>What energy vibe do you need today?</span>",
+                options: [
+                    { text: "Focus 專注：排除雜音，回歸思緒澄澈 (Focus & Mindful)", type: "A" },
+                    { text: "Luxury 奢華：充滿氣場，展現自信與美學 (Confidence & Luxury)", type: "B" },
+                    { text: "Relax 放鬆：純淨安全，像洗完澡一樣舒適 (Relax & Safe)", type: "C" }
+                ]
+            },
+            {
+                q: "閉上眼睛深呼吸，以下哪一種大自然的狀態最貼近妳現在嚮往的放鬆感？<br><span class='text-sm text-gray-400 font-sans block mt-1'>Which scenery relaxes you the most?</span>",
+                options: [
+                    { text: "清晨第一道穿透濃霧、灑在柑橘樹上的微光 (Morning Light & Neroli)", type: "B" },
+                    { text: "雨後深夜，走在泥土與松針落葉鋪滿的深山森林 (Midnight Rain & Cedarwood)", type: "A" },
+                    { text: "陽光下剛剛烘乾、摸起來蓬鬆純淨的亞麻布料 (Sun-dried Clean Linen)", type: "C" }
+                ]
+            },
+            {
+                q: "如果明天就要開啟一個全新的跨界商業專案，妳會選擇穿上什麼色系的衣服？<br><span class='text-sm text-gray-400 font-sans block mt-1'>Your power color for a new business project?</span>",
+                options: [
+                    { text: "低調、沉穩的知性大地色或墨綠色 (Earth tones & Deep Forest)", type: "A" },
+                    { text: "亮麗、高雅的法式粉白與耀眼金邊 (Elegant Pink, Gold & White)", type: "B" },
+                    { text: "乾淨、毫無防備的純白與亞麻灰 (Pure White & Clean Gray)", type: "C" }
+                ]
+            },
+            {
+                q: "最後，當妳完成調香，妳希望這個瓶子貼上什麼字眼的專屬標籤？<br><span class='text-sm text-gray-400 font-sans block mt-1'>The ultimate keyword for your custom label?</span>",
+                options: [
+                    { text: "【心靈宣告】Inner Peace 尋回最真實的自己", type: "A" },
+                    { text: "【成功顯化】Independent Brand 主理人的跨界成功", type: "B" },
+                    { text: "【日常療癒】Daily Healing 被最溫柔的植物包圍", type: "C" }
+                ]
+            }
+        ];
+
+        // 結果對應內容
+        const resultData = {
+            "A": {
+                title: "霧界之森 ‧ 內省沉靜木質系",
+                desc: "這是一座雨後深夜的森林。妳渴望排除生活中的雜音，雪松的澄澈與岩蘭草的大地扎根力，能幫妳帶回專注力（Focus）與滿滿的內心平靜。最適合相伴妳進行思考與獨立工作。"
+            },
+            "B": {
+                title: "微光晨曦 ‧ 自信美學輕奢系",
+                desc: "清晨第一道穿透內心迷霧的日光！珍貴橙花的高雅與馬鞭草的亮麗完美融合，散發出成熟、高奢（Luxury）且極具品味的女性微商主理人氣場。明天，全場焦點就是妳。"
+            },
+            "C": {
+                title: "慵懶亞麻 ‧ 純淨舒適草本花香系",
+                desc: "像剛洗淨的亞麻布料在陽光下曝曬後的蓬鬆純淨感。羅馬洋甘菊的微甜像蘋果般安心，搭配乾淨的杜松子與甜馬鬱蘭，給妳徹底的放鬆（Relax）與毫無防備的安全感。"
+            }
+        };
+
+        let currentQuestion = 0;
+        let scoreTracker = { A: 0, B: 0, C: 0 };
+
+        function renderQuestion() {
+            if (currentQuestion < quizData.length) {
+                const data = quizData[currentQuestion];
+                document.getElementById("question-number").innerHTML = `Question ${currentQuestion + 1} / 5`;
+                document.getElementById("progress-bar").style.width = `${(currentQuestion + 1) * 20}%`;
+                document.getElementById("question-text").innerHTML = data.q;
+                
+                const optionsSpace = document.getElementById("options-space");
+                optionsSpace.innerHTML = "";
+                
+                data.options.forEach(opt => {
+                    const btn = document.createElement("button");
+                    btn.className = "w-full text-left bg-[#FDFBF7] hover:bg-[#C07C5F]/10 border border-gray-200/80 hover:border-[#C07C5F] px-6 py-4 rounded-xl text-sm font-medium transition-all duration-200 leading-relaxed active:scale-[0.99]";
+                    btn.innerHTML = opt.text;
+                    btn.onclick = () => handleAnswer(opt.type);
+                    optionsSpace.appendChild(btn);
+                });
+            } else {
+                showResult();
+            }
+        }
+
+        function handleAnswer(type) {
+            scoreTracker[type]++;
+            currentQuestion++;
+            renderQuestion();
+        }
+
+        function showResult() {
+            document.getElementById("question-container").classList.add("hidden");
+            document.getElementById("result-container").classList.remove("hidden");
+            
+            // 計算最高得分的類型
+            let maxType = "B"; // 預設
