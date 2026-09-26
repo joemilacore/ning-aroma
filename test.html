@@ -10,84 +10,104 @@
         .font-serif-luxury { font-family: 'Playfair Display', 'Noto Serif TC', serif; }
     </style>
 </head>
-<body id="body-layout" class="bg-[#FDFBF7] text-gray-800 font-serif-luxury antialiased">
+<!-- 背景改為更有質感的微沉穩暖調，文字加深提高對比 -->
+<body id="body-layout" class="bg-[#FAF6F0] text-gray-900 font-serif-luxury antialiased">
 
-    <nav class="border-b bg-white px-6 py-4 flex justify-between items-center">
-        <div class="text-xl font-bold tracking-widest text-[#C07C5F]">Ning Aroma</div>
-        <button onclick="toggleDarkMode()" class="text-xs border px-3 py-1 rounded-full">Mode</button>
+    <!-- 導覽列：邊框與品牌名字顏色加強 -->
+    <nav class="border-b-2 border-[#D4AF37] bg-white px-6 py-4 flex justify-between items-center shadow-md">
+        <div class="text-2xl font-black tracking-widest text-[#E63946]">Ning Aroma</div>
+        <button onclick="toggleDarkMode()" class="text-xs font-bold border-2 border-gray-900 px-3 py-1 rounded-full uppercase bg-gray-900 text-white">Mode</button>
     </nav>
 
     <main class="max-w-xl mx-auto px-6 py-12">
-        <header class="text-center mb-8">
-            <h1 class="text-3xl font-bold text-gray-900 mb-2" id="main-title">Organic Tea Couture</h1>
-            <p class="text-xs text-[#8C9E8C] tracking-widest">尋找妳的專屬香氣宣告</p>
+        <header class="text-center mb-10">
+            <!-- 標題放大、改為極具存在感的深炭黑色 -->
+            <h1 class="text-4xl font-black text-gray-950 mb-3 tracking-wide" id="main-title">Organic Tea Couture</h1>
+            <p class="text-xs text-[#C07C5F] font-bold tracking-widest uppercase bg-[#C07C5F]/10 py-1.5 px-4 rounded-full inline-block">Scent Mirror • 尋找妳的專屬香氣宣告</p>
         </header>
 
-        <div id="quiz-card" class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+        <!-- 測驗卡片：加深邊框與陰影，視覺更扎實 -->
+        <div id="quiz-card" class="bg-white rounded-3xl p-8 shadow-2xl border-2 border-gray-900 transition-all">
             <div id="question-container">
-                <div class="flex justify-between items-center mb-6">
-                    <span id="question-number" class="text-xs text-[#C07C5F] font-bold">Q 1 / 3</span>
-                    <div class="w-16 h-1 bg-gray-100 rounded-full overflow-hidden">
-                        <div id="progress-bar" class="h-full bg-[#C07C5F]" style="width: 33%;"></div>
+                <div class="flex justify-between items-center mb-6 border-b pb-3 border-gray-200">
+                    <span id="question-number" class="text-sm text-[#E63946] font-black tracking-wider">Q 1 / 3</span>
+                    <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <!-- 進度條顏色加深 -->
+                        <div id="progress-bar" class="h-full bg-[#E63946]" style="width: 33%;"></div>
                     </div>
                 </div>
-                <h2 id="question-text" class="text-lg font-bold text-gray-900 mb-6">題目載入中...</h2>
-                <div id="options-space" class="flex flex-col gap-3"></div>
+                <h2 id="question-text" class="text-xl font-black text-gray-950 mb-8 leading-relaxed">題目載入中...</h2>
+                <!-- 選項按鈕：框線加粗、字體加粗，按下去回饋更強 -->
+                <div id="options-space" class="flex flex-col gap-4"></div>
             </div>
 
+            <!-- 結果開獎區域 -->
             <div id="result-container" class="hidden text-center py-4">
-                <span class="text-xs text-[#8C9E8C] font-bold mb-1 block">Your Destiny Vibe</span>
-                <h2 id="result-title" class="text-2xl font-bold text-gray-900 mb-3">命定香氣</h2>
-                <p id="result-description" class="text-gray-600 text-sm mb-6 px-2"></p>
+                <span class="text-xs text-[#C07C5F] font-black tracking-widest uppercase mb-1 block">Your Destiny Vibe</span>
+                <!-- 結果標題改為高飽和深粉紅、字體極粗 -->
+                <h2 id="result-title" class="text-3xl font-black text-[#E63946] mb-4 tracking-wide">命定香氣</h2>
+                <p id="result-description" class="text-gray-950 font-bold text-sm mb-8 px-2 leading-relaxed bg-amber-50 p-4 rounded-xl border border-amber-200"></p>
                 
-                <div class="bg-[#FDFBF7] p-5 rounded-2xl border text-left mb-6">
-                    <h3 class="font-bold text-sm text-gray-900 mb-1">Ning Aroma 核心高訂噴霧 10ml</h3>
-                    <p class="text-xs text-gray-500 mb-3">符合國際 KDCA 調香大師工藝標準，純精油調配。</p>
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-[#C07C5F]">NT\$ 880</span>
-                        <span class="text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded">體驗會限定商品</span>
+                <!-- 商品區：色調加強、突顯價格 -->
+                <div class="bg-gradient-to-br from-white to-[#FAF6F0] p-6 rounded-2xl border-2 border-gray-900 text-left mb-8 shadow-md">
+                    <div class="flex gap-2 mb-3">
+                        <div class="w-4 h-4 rounded-full bg-gray-900"></div>
+                        <div class="w-4 h-4 rounded-full bg-[#D4AF37]"></div>
+                        <div class="w-4 h-4 rounded-full bg-[#E63946]"></div>
+                    </div>
+                    <h3 class="font-black text-base text-gray-950 mb-1">Ning Aroma 核心高訂噴霧 10ml</h3>
+                    <p class="text-xs text-gray-700 font-medium mb-4">符合國際 KDCA 調香大師工藝標準，純精油法式沙龍配方。</p>
+                    <div class="flex justify-between items-center border-t pt-3 border-gray-200">
+                        <!-- 價格改為強烈對比色 -->
+                        <span class="font-black text-2xl text-[#E63946] tracking-wider">NT\$ 880</span>
+                        <span class="text-xs font-bold text-white bg-red-600 px-3 py-1 rounded-full shadow">體驗會限定商品</span>
                     </div>
                 </div>
 
-                <button onclick="location.reload()" class="w-full bg-[#C07C5F] text-white font-bold text-xs tracking-widest uppercase py-4 rounded-full shadow-lg">
+                <!-- CTA 按鈕：改為最亮眼的強烈金黃色/深色撞色，刺激點擊 -->
+                <button onclick="location.reload()" class="w-full bg-[#E63946] hover:bg-gray-950 text-white font-black text-sm tracking-widest uppercase py-4 rounded-full shadow-xl transition-all duration-300 transform active:scale-95">
                     預約體驗一對一高訂證照課程 (KDCA)
                 </button>
             </div>
         </div>
     </main>
 
+    <footer class="text-center py-12 text-xs font-bold text-gray-500 tracking-widest">
+        © 2026 Ning Aroma. All Rights Reserved.
+    </footer>
+
     <script>
         const quizData = [
             {
-                q: "1. 咖啡廳中最吸引妳的角落？<br><span class='text-xs text-gray-400 font-sans'>Your favorite corner?</span>",
+                q: "1. 咖啡廳中最吸引妳的角落？<br><span class='text-xs text-gray-500 font-sans block mt-1'>Your favorite corner?</span>",
                 options: [
-                    { text: "陽光散落的白色亞麻沙發區 (Linen & Relax)", type: "C" },
-                    { text: "復古木質桌椅與老書櫃角落 (Wood & Focus)", type: "A" },
-                    { text: "點著高奢金色蠟燭的大理石位 (Luxury Candle)", type: "B" }
+                    { text: "🌟 陽光散落的白色亞麻沙發區 (Linen & Relax)", type: "C" },
+                    { text: "🪵 復古木質桌椅與老書櫃角落 (Wood & Focus)", type: "A" },
+                    { text: "✨ 點著高奢金色蠟燭的大理石位 (Luxury Candle)", type: "B" }
                 ]
             },
             {
-                q: "2. 今天最想要的能量暗示？<br><span class='text-xs text-gray-400 font-sans'>What energy vibe do you need?</span>",
+                q: "2. 今天最想要的能量暗示？<br><span class='text-xs text-gray-500 font-sans block mt-1'>What energy vibe do you need?</span>",
                 options: [
-                    { text: "Focus 專注：排除雜音，思緒澄澈", type: "A" },
-                    { text: "Luxury 奢華：滿滿氣場，獨立自信", type: "B" },
-                    { text: "Relax 放鬆：純淨安全，溫柔療癒", type: "C" }
+                    { text: "🎯 Focus 專注：排除雜音，思緒瞬間澄澈", type: "A" },
+                    { text: "👑 Luxury 奢華：滿滿氣場，獨立大女主自信", type: "B" },
+                    { text: "🌿 Relax 放鬆：純淨安全，溫柔包裹療癒", type: "C" }
                 ]
             },
             {
-                q: "3. 嚮往哪一種大自然的放鬆感？<br><span class='text-xs text-gray-400 font-sans'>Which scenery relaxes you?</span>",
+                q: "3. 嚮往哪一種大自然的放鬆感？<br><span class='text-xs text-gray-500 font-sans block mt-1'>Which scenery relaxes you?</span>",
                 options: [
-                    { text: "雨後深夜，走在松針落葉的深山森林", type: "A" },
-                    { text: "清晨第一道微光，灑在橙花樹上", type: "B" },
-                    { text: "烘乾蓬鬆、帶有陽光氣息的亞麻布", type: "C" }
+                    { text: "🌧️ 雨後深夜，走在松針落葉的深山森林", type: "A" },
+                    { text: "🌅 清晨第一道微光，鮮活灑在橙花樹上", type: "B" },
+                    { text: "☀️ 烘乾蓬鬆、帶有暖陽氣息的舒適亞麻布", type: "C" }
                 ]
             }
         ];
 
         const resultData = {
-            "A": { title: "霧界之森 ‧ 內省沉靜木質系", desc: "雪松的澄澈與岩蘭草的大地氣息，幫妳帶回專注力（Focus）與滿滿的內心平靜。最適合思考與獨立工作。" },
-            "B": { title: "微光晨曦 ‧ 自信美學輕奢系", desc: "高貴橙花與明亮馬鞭草融合，散發出成熟、奢華（Luxury）且極具品味的女性微商主理人氣場。全場焦點就是妳。" },
-            "C": { title: "慵懶亞麻 ‧ 純淨舒適草本花香系", desc: "羅馬洋甘菊的微甜搭配乾淨的杜松子，帶給妳徹底的放鬆（Relax）與如同躺在陽光亞麻床單上的純淨安全感。" }
+            "A": { title: "霧界之森 ‧ 內省沉靜木質系", desc: "雪松的澄澈與岩蘭草的大地氣息，幫妳帶回強大的專注力（Focus）與滿滿的內心扎根力量。最適合思考與獨立開啟新事業專案。" },
+            "B": { title: "微光晨曦 ‧ 自信美學輕奢系", desc: "高貴橙花與明亮馬鞭草完美撞色，散發出成熟、奢華（Luxury）且極具品味的微商女性品牌創辦人氣場。明天，全場焦點就是妳。" },
+            "C": { title: "慵懶亞麻 ‧ 純淨舒適草本花香系", desc: "羅馬洋甘菊的微甜搭配乾淨的杜松子，帶給妳徹底的放鬆（Relax）與如同躺在暖陽亞麻床單上的純淨安全感，釋放一切壓力。" }
         };
 
         let currentQuestion = 0;
@@ -103,7 +123,8 @@
                 space.innerHTML = "";
                 data.options.forEach(opt => {
                     const btn = document.createElement("button");
-                    btn.className = "w-full text-left bg-[#FDFBF7] border px-5 py-3.5 rounded-xl text-sm transition-all active:scale-[0.99]";
+                    // 按鈕改為粗邊框高對比設計
+                    btn.className = "w-full text-left bg-white hover:bg-gray-950 hover:text-white border-2 border-gray-900 px-6 py-4 rounded-xl text-sm font-bold transition-all active:scale-[0.98] shadow-sm";
                     btn.innerHTML = opt.text;
                     btn.onclick = () => handleAnswer(opt.type);
                     space.appendChild(btn);
@@ -125,8 +146,8 @@
 
         function toggleDarkMode() {
             const body = document.getElementById("body-layout");
-            body.classList.toggle("bg-[#FDFBF7]"); body.classList.toggle("bg-gray-900");
-            body.classList.toggle("text-gray-800"); body.classList.toggle("text-white");
+            body.classList.toggle("bg-[#FAF6F0]"); body.classList.toggle("bg-gray-950");
+            body.classList.toggle("text-gray-900"); body.classList.toggle("text-white");
         }
         renderQuestion();
     </script>
