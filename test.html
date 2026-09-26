@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ning Aroma - 專屬感官香氣測驗 Scent Quiz</title>
+    <title>Ning Aroma - 專屬感官香氣測驗</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://jsdelivr.net"></script>
     <style>
@@ -11,65 +11,70 @@
         .font-serif-luxury { font-family: 'Playfair Display', 'Noto Serif TC', serif; }
     </style>
 </head>
-<!-- 溫暖知性的法式柔和背景 -->
-<body id="body-layout" class="bg-[#FDFBF7] text-gray-800 font-serif-luxury antialiased transition-colors duration-300">
+<!-- 溫暖精緻的法式高訂粉白柔和背景 -->
+<body id="body-layout" class="bg-[#FAF6F0] text-gray-800 font-serif-luxury antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- 導覽列：質感粉白與淡金邊框 -->
-    <nav class="border-b border-[#E8D7D0] bg-white/90 backdrop-blur-md px-6 py-4 flex justify-between items-center sticky top-0 z-50 shadow-sm">
-        <div class="text-xl font-bold tracking-widest text-[#C07C5F]">Ning Aroma</div>
-        <button onclick="toggleDarkMode()" class="text-xs tracking-widest border border-[#C07C5F] text-[#C07C5F] px-3 py-1 rounded-full hover:bg-[#FAF0EC]">Mode</button>
+    <!-- 頂部品牌區：極簡優雅 -->
+    <nav class="border-b border-[#E8D7D0] bg-white/90 backdrop-blur-md px-8 py-5 flex justify-between items-center shadow-sm">
+        <div class="text-2xl font-black tracking-widest text-[#C07C5F]">Ning Aroma</div>
+        <button onclick="toggleDarkMode()" class="text-xs tracking-widest border-2 border-[#C07C5F] text-[#C07C5F] font-bold px-3 py-1 rounded-full uppercase hover:bg-[#FAF0EC]">Mode</button>
     </nav>
 
-    <main class="max-w-xl mx-auto px-6 py-12">
-        <header class="text-center mb-10">
-            <h1 class="text-3xl font-bold tracking-wide text-[#4A4A4A] mb-2" id="main-title">Organic Tea Couture</h1>
-            <p class="text-xs text-[#8C9E8C] tracking-widest uppercase bg-[#FAF0EC] text-[#C07C5F] py-1 px-4 rounded-full inline-block font-sans">Mirror of Soul • 尋找妳的專屬香氣宣告</p>
+    <!-- 核心測驗主體 -->
+    <main class="max-w-xl mx-auto px-6 py-10 w-full flex-grow flex flex-col justify-center">
+        <header class="text-center mb-8">
+            <h1 class="text-2xl font-black tracking-widest text-gray-900 mb-2 uppercase">Scent Mirror</h1>
+            <p class="text-xs text-[#C07C5F] font-black tracking-widest uppercase bg-[#FAF0EC] py-1.5 px-5 rounded-full inline-block">鏡像靈魂 • 尋找妳的專屬香氣宣告</p>
         </header>
 
-        <!-- 質感卡片：溫暖粉白柔和陰影 -->
-        <div id="quiz-card" class="bg-white rounded-3xl p-8 shadow-xl shadow-[#E8D7D0]/30 border border-[#FAF0EC] transition-all">
+        <!-- 質感測驗卡片：邊框與陰影加強，突顯大器感 -->
+        <div id="quiz-card" class="bg-white rounded-3xl p-8 shadow-2xl shadow-[#E8D7D0]/50 border-2 border-[#FAF0EC] transition-all">
+            
+            <!-- 測驗進行中區塊 -->
             <div id="question-container">
-                <div class="flex justify-between items-center mb-6">
-                    <span id="question-number" class="text-xs tracking-widest text-[#C07C5F] font-bold uppercase">Q 1 / 3</span>
-                    <div class="w-20 h-1 bg-gray-100 rounded-full overflow-hidden">
-                        <!-- 進度條改為經典優雅粉 -->
-                        <div id="progress-bar" class="h-full bg-[#C07C5F]" style="width: 33%;"></div>
+                <div class="flex justify-between items-center mb-8 border-b pb-4 border-gray-100">
+                    <span id="question-number" class="text-xs tracking-widest text-[#C07C5F] font-black uppercase">Question 1 / 3</span>
+                    <div class="w-24 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="h-full bg-[#C07C5F] transition-all duration-300" style="width: 33.3%;"></div>
                     </div>
                 </div>
-                <h2 id="question-text" class="text-lg font-bold text-[#4A4A4A] leading-relaxed mb-8">題目載入中...</h2>
-                <div id="options-space" class="flex flex-col gap-3.5"></div>
+                <!-- 題目字體放大加粗 -->
+                <h2 id="question-text" class="text-xl font-bold text-gray-900 leading-relaxed mb-8">題目載入中...</h2>
+                <!-- 選項按鈕空間 -->
+                <div id="options-space" class="flex flex-col gap-4"></div>
             </div>
 
-            <!-- 結果開獎區域 -->
-            <div id="result-container" class="hidden text-center py-4">
-                <span class="text-xs tracking-widest text-[#8C9E8C] uppercase font-bold mb-1 block">Your Destiny Vibe</span>
-                <h2 id="result-title" class="text-2xl font-bold text-[#4A4A4A] mb-3 tracking-wide">命定香氣</h2>
-                <p id="result-description" class="text-gray-600 text-sm leading-relaxed mb-8 px-2 bg-[#FDFBF7] p-5 rounded-2xl border border-[#FAF0EC]"></p>
+            <!-- 結果開獎區塊 -->
+            <div id="result-container" class="hidden text-center py-2">
+                <span class="text-xs tracking-widest text-[#8C9E8C] uppercase font-black mb-2 block">Your Destiny Vibe</span>
+                <h2 id="result-title" class="text-2xl font-black text-[#C07C5F] mb-4 tracking-wide">命定香氣</h2>
+                <p id="result-description" class="text-gray-700 text-sm leading-relaxed mb-8 px-3 bg-[#FAF6F0] p-6 rounded-2xl border border-[#E8D7D0] font-medium"></p>
                 
-                <!-- 商品推薦區：優雅粉金圍繞 -->
-                <div class="bg-gradient-to-br from-white to-[#FDFBF7] p-6 rounded-2xl border border-[#FAF0EC] text-left mb-6 shadow-sm">
+                <!-- 商品轉化推薦區 -->
+                <div class="bg-gradient-to-br from-white to-[#FAF6F0] p-6 rounded-2xl border border-[#E8D7D0] text-left mb-8 shadow-sm">
                     <div class="flex gap-2 mb-3">
-                        <div class="w-3 h-3 rounded-full" style="background-color: #4A4A4A;"></div>
+                        <div class="w-3 h-3 rounded-full" style="background-color: #E8D7D0;"></div>
                         <div class="w-3 h-3 rounded-full" style="background-color: #8C9E8C;"></div>
                         <div class="w-3 h-3 rounded-full" style="background-color: #C07C5F;"></div>
                     </div>
-                    <h3 class="font-bold text-sm text-[#4A4A4A] mb-1">Ning Aroma 核心高訂噴霧 10ml</h3>
-                    <p class="text-xs text-gray-500 mb-4 font-sans">使用天然純精油，符合國際 KDCA 調香大師認證工藝標準。</p>
-                    <div class="flex justify-between items-center border-t pt-3 border-gray-100">
-                        <span class="font-bold text-xl text-[#C07C5F] tracking-wide">NT\$ 880</span>
-                        <span class="text-xs text-[#C07C5F] bg-[#FAF0EC] px-3 py-1 rounded-full font-bold">體驗會限定</span>
+                    <h3 class="font-bold text-sm text-gray-900 mb-1">Ning Aroma 核心系列訂製噴霧 10ml</h3>
+                    <p class="text-xs text-gray-500 font-sans">使用純天然植物精油，承襲國際 KDCA 認證工藝標準調配。</p>
+                    <div class="flex justify-between items-center border-t pt-3 border-gray-100 mt-4">
+                        <span class="font-bold text-xl text-[#C07C5F] tracking-wider">NT\$ 880</span>
+                        <span class="text-xs text-[#C07C5F] bg-[#FAF0EC] px-3 py-1 rounded-full font-bold">體驗會限定商品</span>
                     </div>
                 </div>
 
-                <!-- 核心行動呼籲（CTA）柔和質感按鈕 -->
-                <button onclick="location.reload()" class="w-full bg-[#C07C5F] hover:bg-[#B06C50] text-white font-bold text-xs tracking-widest uppercase py-4 rounded-full shadow-lg shadow-[#C07C5F]/20 transition-all duration-300 active:scale-[0.98]">
+                <!-- 核心行動呼籲 CTA -->
+                <button onclick="location.reload()" class="w-full bg-[#C07C5F] hover:bg-[#B06C50] text-white font-bold text-sm tracking-widest uppercase py-4 rounded-full shadow-lg shadow-[#C07C5F]/30 transition-all duration-300 active:scale-[0.98]">
                     預約體驗一對一高訂證照課程 (KDCA)
                 </button>
             </div>
+
         </div>
     </main>
 
-    <footer class="text-center py-12 text-xs text-gray-400 tracking-widest">
+    <footer class="text-center py-8 text-xs font-bold text-gray-400 tracking-widest">
         © 2026 Ning Aroma. All Rights Reserved.
     </footer>
 
@@ -113,14 +118,15 @@
         function renderQuestion() {
             if (currentQuestion < quizData.length) {
                 const data = quizData[currentQuestion];
-                document.getElementById("question-number").innerHTML = `Q ${currentQuestion + 1} / 3`;
+                document.getElementById("question-number").innerHTML = `Question ${currentQuestion + 1} / 3`;
                 document.getElementById("progress-bar").style.width = `${(currentQuestion + 1) * 33.3}%`;
                 document.getElementById("question-text").innerHTML = data.q;
                 const space = document.getElementById("options-space");
                 space.innerHTML = "";
                 data.options.forEach(opt => {
                     const btn = document.createElement("button");
-                    btn.className = "w-full text-left bg-white hover:bg-[#FAF0EC] border border-gray-200 hover:border-[#C07C5F] px-6 py-4 rounded-xl text-sm font-medium transition-all duration-150 active:scale-[0.99] shadow-sm";
+                    // 這裡特別放大了按鈕內的字體 (text-base) 並且加粗 (font-bold)，更方便閱讀點選
+                    btn.className = "w-full text-left bg-white hover:bg-[#FAF0EC] border-2 border-[#E8D7D0] hover:border-[#C07C5F] px-6 py-5 rounded-2xl text-base font-bold text-gray-800 transition-all duration-150 active:scale-[0.99] shadow-sm";
                     btn.innerHTML = opt.text;
                     btn.onclick = () => handleAnswer(opt.type);
                     space.appendChild(btn);
@@ -142,7 +148,7 @@
 
         function toggleDarkMode() {
             const body = document.getElementById("body-layout");
-            body.classList.toggle("bg-[#FDFBF7]"); body.classList.toggle("bg-gray-900");
+            body.classList.toggle("bg-[#FAF6F0]"); body.classList.toggle("bg-gray-950");
             body.classList.toggle("text-gray-800"); body.classList.toggle("text-white");
         }
         renderQuestion();
